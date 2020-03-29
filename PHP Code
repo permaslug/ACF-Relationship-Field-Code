@@ -1,18 +1,19 @@
-<div class='relationship-data'>
-      <p>Featured Sponsors:</p>
-         <?php 
+<?php 
 
-    		$sponsors = get_field('rel_test');
+    		$attractions = get_field('amenities_related_field');
 
-    	if( $sponsors ): ?>
-        	<ul>
-        	<?php foreach( $sponsors as $sponsor ): ?>
-            	<li>
-                	<a href="<?php echo get_permalink( $sponsor->ID ); ?>"><?php echo get_the_title( $sponsor->ID ); ?></a>
-                	
-            	</li>
+    	if( $attractions ): ?>
+        	
+        	<?php foreach( $attractions as $attraction ): ?>
+            
+              
+             <div>	
+              	
+               	<div><a href="<?php echo get_permalink( $attraction->ID ); ?>"><?php echo get_the_title( $attraction->ID ); ?></a></div>
+                <div><a href="<?php echo get_permalink( $attraction->ID ); ?>"> <?php echo get_the_post_thumbnail( $attraction->ID, 'thumbnail' ); ?></a></div>
+            	
+             </div>
+              
         	<?php endforeach; ?>
-        	</ul>
-    	<?php endif; ?>
-          
-  </div>
+        	
+<?php endif; ?>
